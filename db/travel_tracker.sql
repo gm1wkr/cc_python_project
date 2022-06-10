@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS countries;
 DROP TABLE IF EXISTS cities;
--- DROP TABLE IF EXISTS notes;
+DROP TABLE IF EXISTS notes;
 DROP TABLE IF EXISTS attractions;
 
 CREATE TABLE countries (
@@ -16,6 +16,14 @@ CREATE TABLE cities (
     country_id INT REFERENCES countries(id) ON DELETE CASCADE
 );
 
+
+CREATE TABLE notes(
+    id SERIAL PRIMARY KEY,
+    date DATE,
+    title VARCHAR(255),
+    attraction_id INT REFERENCES attractions(id),
+    description TEXT
+);
 
 CREATE TABLE attractions (
     id SERIAL PRIMARY KEY,

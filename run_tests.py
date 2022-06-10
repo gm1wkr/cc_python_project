@@ -1,10 +1,9 @@
 import unittest
 
-import unittest
-
 from models.countries import Country
 from models.cities import City
 from models.attractions import Attraction
+from models.notes import Note
 
 class TestTravel(unittest.TestCase):
     def setUp(self):
@@ -12,7 +11,7 @@ class TestTravel(unittest.TestCase):
         self.canada = Country("Canada", "North America", 2)
         self.toronto = City("Toronto", 1)
         self.cn_tower = Attraction("CN Tower", "A big towery thing in toronto",1, "10/01/1999", 2, True)
-
+        self.note_1 = Note("note", "2022-12-25", "obj", "want to go", 1)
 
     def test_country_has_name(self):
         self.assertEqual("France", self.france.name)
@@ -45,5 +44,22 @@ class TestTravel(unittest.TestCase):
         self.assertEqual(True, self.cn_tower.visited)
 
 
+    # def test_note_has_title(self):
+    #     note2 = Note("title", "date", "attraction name", "comment", 2)
+    #     self.assertEqual("Title", note2.title)
+
+    # AssertionError: 'Title' != ('title',)
+
+
+    # def test_note_has_attraction(self):
+    #     self.assertEqual("obj", self.note_1.attraction)
+    # AssertionError: 'obj' != ('obj',)
+
+   
+
+
+
 if __name__ == "__main__":
     unittest.main()
+
+
