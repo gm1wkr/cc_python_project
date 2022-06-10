@@ -1,6 +1,7 @@
 import pdb
-from models.attractions import Attraction
 
+
+from models.attractions import Attraction
 from models.countries import Country
 from models.cities import City
 import repositories.country_repository as country_repository
@@ -33,12 +34,20 @@ city_1_select = city_repository.select(city_1.id)
 city_repository.delete(city_1.id)
 city_list = city_repository.select_all()
 
+datetime_now = "2022-04-26"
 
-attraction_1 = Attraction("CodeClan HQ", "CodeClan HQ is must visit", city_2, "")
+attraction_1 = Attraction("CodeClan HQ", "CodeClan HQ is must visit", city_2, datetime_now)
 attractions_repository.save(attraction_1)
-attraction_2 = Attraction("Glasgow Hydro", "Things really happen here and they are groovy", city_2, "")
+attraction_2 = Attraction("Glasgow Hydro", "Things really happen here and they are groovy", city_2, datetime_now)
 attractions_repository.save(attraction_2)
+attraction_2_id = attractions_repository.select(city_2.id)
+attraction_1_updated = Attraction("CodeClan_ HQ", "Yay, CodeClan HQ is must visit", city_2, datetime_now, attraction_1.id, True)
+
+# attractions_repository.delete(attraction_1.id)
+# attractions_repository.delete_all()
+
 attraction_list = attractions_repository.select_all()
+
 
 
 

@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS countries;
 DROP TABLE IF EXISTS cities;
+-- DROP TABLE IF EXISTS notes;
 DROP TABLE IF EXISTS attractions;
 
 CREATE TABLE countries (
@@ -21,7 +22,7 @@ CREATE TABLE attractions (
     name VARCHAR(255),
     description VARCHAR(255),
     city_id INT REFERENCES cities(id) ON DELETE CASCADE,
-    date VARCHAR(255),
+    date DATE,
     visited BOOLEAN
 );
 

@@ -1,7 +1,6 @@
 from db.run_sql import run_sql
-from models.countries import Country
+from models.cities import City
 from models.attractions import Attraction
-
 import repositories.city_repository as city_repository
 
 
@@ -19,7 +18,6 @@ def save(attraction):
     ]
     
     result = run_sql(sql, values);
-    print(result)
     id = result[0]['id']
     attraction.id = id
 
@@ -39,16 +37,43 @@ def select_all():
 
 
 def select(id):
-    pass
+    sql = "SELECT * FROM attractions WHERE id = %s"
+    values = [id]
+    row = run_sql(sql, values)[0]
+
+    if row is not None:
+        city = city_repository.select(row['city_id']) 
+        attraction = Attraction(row['name'], row['description'], city, "", row['id'])
+    return attraction
 
 
-def update():
-    pass
+
+def update(attraction):
+
+    sql = """UPDATE attractions 
+    SET (name, description, city, date, visited) = (%s, %s, %s, %s, %s) 
+    WHERE id = %s
+    """
+
+    values = [
+        attraction.name, 
+        attraction.description, 
+        attraction.city.id, 
+        attraction.date, 
+        attraction.visited, 
+        attraction.id
+        ]
+
+    run_sql(sql, values)
 
 
 def delete_all():
-    pass
+    sql = "DELETE FROM attractions"
+    values = []
+    run_sql(sql, values)
 
 
 def delete(id):
-    pass
+    sql = "DELETE FROM attractions WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
