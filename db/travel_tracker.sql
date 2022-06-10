@@ -1,6 +1,6 @@
+DROP TABLE IF EXISTS notes;
 DROP TABLE IF EXISTS countries;
 DROP TABLE IF EXISTS cities;
-DROP TABLE IF EXISTS notes;
 DROP TABLE IF EXISTS attractions;
 
 CREATE TABLE countries (
@@ -17,13 +17,6 @@ CREATE TABLE cities (
 );
 
 
-CREATE TABLE notes(
-    id SERIAL PRIMARY KEY,
-    date DATE,
-    title VARCHAR(255),
-    attraction_id INT REFERENCES attractions(id),
-    description TEXT
-);
 
 CREATE TABLE attractions (
     id SERIAL PRIMARY KEY,
@@ -34,3 +27,11 @@ CREATE TABLE attractions (
     visited BOOLEAN
 );
 
+
+CREATE TABLE notes(
+    id SERIAL PRIMARY KEY,
+    date DATE,
+    title VARCHAR(255),
+    attraction_id INT REFERENCES attractions(id),
+    description TEXT
+);
