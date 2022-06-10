@@ -4,9 +4,13 @@ import pdb
 from models.attractions import Attraction
 from models.countries import Country
 from models.cities import City
+from models.notes import Note
+
 import repositories.country_repository as country_repository
 import repositories.city_repository as city_repository
 import repositories.attractions_repository as attractions_repository
+import repositories.notes_repository as notes_repository
+
 
 country_repository.delete_all()
 scotland = Country("Scotland", "UK")
@@ -49,6 +53,6 @@ attraction_1_updated = Attraction("CodeClan_ HQ", "Yay, CodeClan HQ is must visi
 attraction_list = attractions_repository.select_all()
 
 
-
-
+note_1 = Note("note", "2022-01-01", attraction_2, "the note")
+notes_repository.save(note_1)
 pdb.set_trace()
