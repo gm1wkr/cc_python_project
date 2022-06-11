@@ -55,4 +55,14 @@ attraction_list = attractions_repository.select_all()
 
 note_1 = Note("note", "2022-01-01", attraction_2, "the note")
 notes_repository.save(note_1)
+note_2 = Note("note 2", "2022-01-01", attraction_2, "Visit the CodeClan_ world HQ")
+notes_repository.save(note_2)
+
+notes_list = notes_repository.select_all()
+
+notes_repository.delete_all()
+notes_list_after_delete = notes_repository.select_all()
+
+
+
 pdb.set_trace()
