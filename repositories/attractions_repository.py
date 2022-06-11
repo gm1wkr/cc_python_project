@@ -54,7 +54,6 @@ def update(attraction):
     SET (name, description, city, date, visited) = (%s, %s, %s, %s, %s) 
     WHERE id = %s
     """
-
     values = [
         attraction.name, 
         attraction.description, 
