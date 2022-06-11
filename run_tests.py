@@ -12,6 +12,7 @@ class TestTravel(unittest.TestCase):
         self.toronto = City("Toronto", 1)
         self.cn_tower = Attraction("CN Tower", "A big towery thing in toronto",1, "10/01/1999", 2, True)
         self.note_1 = Note("note", "2022-12-25", "obj", "want to go", 1)
+        self.note_2 = Note("Title", "2022-06-24", "attraction name", "comment", 2)
 
     def test_country_has_name(self):
         self.assertEqual("France", self.france.name)
@@ -44,16 +45,22 @@ class TestTravel(unittest.TestCase):
         self.assertEqual(True, self.cn_tower.visited)
 
 
-    # def test_note_has_title(self):
-    #     note2 = Note("title", "date", "attraction name", "comment", 2)
-    #     self.assertEqual("Title", note2.title)
+    def test_note_has_title(self):
+        self.assertEqual("Title", self.note_2.title)
 
-    # AssertionError: 'Title' != ('title',)
+    def test_note_has_attraction(self):
+        self.assertEqual("attraction name", self.note_2.attraction)
+
+    def test_note_has_description(self):
+        self.assertEqual("comment", self.note_2.description)
+
+    def test_note_has_date(self):
+        self.assertEqual("2022-06-24", self.note_2.date)
+
+    def test_note_has_id(self):
+        self.assertEqual(2, self.note_2.id)
 
 
-    # def test_note_has_attraction(self):
-    #     self.assertEqual("obj", self.note_1.attraction)
-    # AssertionError: 'obj' != ('obj',)
 
    
 
