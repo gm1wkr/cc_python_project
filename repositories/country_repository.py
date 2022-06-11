@@ -36,7 +36,7 @@ def select(id):
 
 def update(country):
     sql = "UPDATE countries set (name, region) = (%s, %s) WHERE id = %s"
-    values = [id]
+    values = [country.name, country.region, country.id]
     run_sql(sql, values)
 
 
