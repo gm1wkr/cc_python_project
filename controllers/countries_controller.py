@@ -11,3 +11,26 @@ countries_blueprint = Blueprint("countries", __name__)
 def countries():
     countries = country_repository.select_all()
     return render_template("countries/index.html")
+
+# SHOW 
+# GET '/countries/<id>'
+
+
+
+# NEW 
+# GET '/countries/new'
+
+
+# CREATE
+
+
+
+# EDIT
+
+
+
+# UPDATE
+
+
+
+# DELETE
