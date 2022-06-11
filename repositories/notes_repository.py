@@ -35,7 +35,37 @@ def select_all():
     return notes
 
 
+def select(id):
+    note = None
+    sql = "SELECT * FROM notes WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    attraction = attractions_repository.select(result['attraction_id'])
+    if result is not None:
+        note = Note(
+            result['title'],
+            result['date'],
+            attraction,
+            result['description'],
+            result['id']
+        )
+    return note
+    
 
+
+def update(note):
+    sql = """UPDATE notes 
+    SET (date, title, attraction_id, description) = (%s, %s, %s, %s)
+    WHERE id = %s
+    """
+    values = [
+        note.date,
+        note.title,
+        note.attraction.id,
+        note.description,
+        note.id
+    ]
+    run_sql(sql, values)
 
 
 def delete_all():

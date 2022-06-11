@@ -35,3 +35,4 @@ CREATE TABLE notes(
     attraction_id INT REFERENCES attractions(id),
     description TEXT
 );
+
