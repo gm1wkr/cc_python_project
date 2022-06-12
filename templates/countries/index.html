@@ -13,7 +13,16 @@
     {% for country in all_countries %}
     <!-- Countries as UL?? -->
         <p>
-            <a href="/countries/{{ country.id }}">{{ country.name }}</a> - {{ country.region }} {{ country.capital }}
+            <a href="/countries/{{ country.id }}">{{ country.name }}</a> - {{ country.region }} {{ country.capital }} {{ country.timezones }}
+        </p>
+        <p>
+            <img
+  src="https://flagcdn.com/16x12/{{country.code.lower()}}.png"
+  srcset="https://flagcdn.com/32x24/{{country.code.lower()}}.png 2x,
+    https://flagcdn.com/48x36/{{country.code.lower()}}.png 3x"
+  width="16"
+  height="12"
+  alt="{{country.name}}">
         </p>
     {% endfor %}
 
