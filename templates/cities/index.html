@@ -2,5 +2,10 @@
 
 {% block content %}
     <h2>City Manager</h2>
+    {% for city in all_cities %}
+    <p>
+        <a href="/cities/{{ city.id }}">{{ city.name }}</a> - {{ city.country.name }}
+    </p>
+    {% endfor %}
     
 {% endblock content %}

@@ -13,7 +13,7 @@
     {% for country in all_countries %}
     <!-- Countries as UL?? -->
         <p>
-            <a href="/countries/{{ country.id }}">{{ country.name }}</a> - {{ country.region }}
+            <a href="/countries/{{ country.id }}">{{ country.name }}</a> - {{ country.region }} {{ country.capital }}
         </p>
     {% endfor %}
 
