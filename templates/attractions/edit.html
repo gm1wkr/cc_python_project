@@ -4,7 +4,7 @@
     
     <h2>Edit {{ attraction.name }}</h2>
 
-    <form action="/attractions" method="POST">
+    <form action="/attractions/{{ attraction.id }}" method="POST">
         <div>
             <label for="name">Name</label>
             <input type="text" name="name" id="name" value="{{ attraction.name }}">
@@ -25,7 +25,7 @@
         </div>
 
         <div>
-            <label for="date">Date{{ attraction.date }}</label>
+            <label for="date">Date</label>
             <input type="date" name="date" id="date" value="{{ attraction.date }}">
         </div>
 
@@ -36,8 +36,7 @@
                 id="description" 
                 cols="30" 
                 rows="10" 
-                placeholder="Enter a description">{{ attraction.description }}
-            </textarea>
+                placeholder="Enter a description">{{ attraction.description }}</textarea>
         </div>
 
         <div>
@@ -50,7 +49,7 @@
 
         <div>
             <label for=""></label>
-            <input type="submit" value="Add Attraction">
+            <input type="submit" value="Edit">
         </div>
     </form>
 

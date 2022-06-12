@@ -51,7 +51,7 @@ def select(id):
 def update(attraction):
 
     sql = """UPDATE attractions 
-    SET (name, description, city, date, visited) = (%s, %s, %s, %s, %s) 
+    SET (name, description, city_id, date, visited) = (%s, %s, %s, %s, %s) 
     WHERE id = %s
     """
     values = [

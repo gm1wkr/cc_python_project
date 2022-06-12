@@ -61,6 +61,19 @@ def edit_attraction(id):
 
 # UPDATE
 # POST '/attractions/<id>'
+@attractions_blueprint.route("/attractions/<id>", methods=["POST"])
+def update_attraction(id):
+    name = request.form['name']
+    city_id = request.form['city_id']
+    date = request.form['date']
+    description = request.form['description']
+    visited = request.form['visited']
+    city = city_repository.select(city_id)
+    new_attraction = Attraction(name, description, city, date, id, visited)
+    attractions_repository.update(new_attraction)
+    print(new_attraction)
+    return redirect(f"/attractions/{id}")
+
 
 
 # DELETE
