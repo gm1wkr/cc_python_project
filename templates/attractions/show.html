@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>
+    {{ attraction.name }}, 
+    {{ attraction.city.name }}, 
+    {{attraction.city.country.code}},  
+    {{attraction.city.country.region}} 
+</h2>
+
+<p>{{ attraction.date }} - {{ attraction.description }}</p>
+
+<form action="/attractions/{{ attraction.id }}/delete" method="POST">
+    <button type="submit">Delete {{ attraction.name }}</button>
+</form>
+
+<p><a href="/attractions/{{ attraction.id }}/edit">Edit {{ attraction.name }}</a></p>
+
+
+
+{% endblock content %}  
+

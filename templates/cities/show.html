@@ -2,7 +2,19 @@
 
 {% block content %}
     <h2>{{ city.name }}</h2>
-    <p>{{ city.region }}</p>
+
+    <div class="flag">
+        <img
+  src="https://flagcdn.com/224x168/{{ city.country.code.lower() }}.png"
+  width="224"
+  height="168"
+  alt="South Africa">
+    </div>
+
+    <p>{{ city.country.region }}</p>
+    <p>{{ city.country.name }}</p>
+    <p>{{ city.country.timezones }}</p>
+    <p>{{ city.country.code }}</p>
     <p><a href="/cities/{{ city.id }}/edit">Edit</a></p>
     <form action="/cities/{{ city.id }}/delete" method="POST">
         <button type="submit">Delete {{ city.name }}</button>

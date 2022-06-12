@@ -1,0 +1,42 @@
+{% extends 'base.html' %}   
+
+{% block content %}
+    <h2>Add Attraction</h2>
+
+    <form action="/attractions" method="POST">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+        </div>
+
+        <div>
+            <label for="city">City</label>
+            <select name="city_id" id="city">
+                <optgroup label="Choose City">
+                    {% for city in all_cities %}
+                        <option value="{{ city.id }}">{{ city.name }} - {{ city.country.name }}</option>
+                    {% endfor %}
+                </optgroup>
+            </select>
+            <span><a href="/cities/new">Add City</a></span>
+
+
+        </div>
+
+        <div>
+            <label for="date">Date</label>
+            <input type="date" name="date" id="date">
+        </div>
+
+        <div>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter a description"></textarea>
+        </div>
+
+        <div>
+            <label for=""></label>
+            <input type="submit" value="Add Attraction">
+        </div>
+    </form>
+{% endblock content %}
+

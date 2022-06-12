@@ -31,7 +31,7 @@ def select_all():
 
     for row in results:
         city = city_repository.select(row['city_id'])
-        attraction = Attraction(row['name'], row['description'], city, "", row['id'])
+        attraction = Attraction(row['name'], row['description'], city, row['date'], row['id'])
         attractions.append(attraction)
     return attractions
 
@@ -43,7 +43,7 @@ def select(id):
 
     if row is not None:
         city = city_repository.select(row['city_id']) 
-        attraction = Attraction(row['name'], row['description'], city, "", row['id'])
+        attraction = Attraction(row['name'], row['description'], city, row['date'], row['id'], row['visited'])
     return attraction
 
 

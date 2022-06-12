@@ -3,6 +3,8 @@ from models.countries import Country
 
 
 def save(country):
+
+    # if not country_name_exists(country.name):
     sql = """INSERT INTO countries (name, region, capital, timezones, code) 
     VALUES (%s, %s, %s, %s, %s) 
     RETURNING id
@@ -18,6 +20,14 @@ def save(country):
     country.id = id
     return country
 
+
+def country_name_exists(name):
+    sql = "SELECT * FROM countries where name = '%s'"
+    values = [name]
+    row = run_sql(sql, values)[0]
+    if row is not None:
+        return True
+    return False
 
 def select_all():
     countries = []
@@ -41,9 +51,9 @@ def select(id):
     return country
 
 
-def select_city_by_name(name):
+def select_country_by_name(name):
     country = None
-    sql = "SELECT * FROM countries where name = %s"
+    sql = "SELECT * FROM countries where name = '%s'"
     values = [name]
     row = run_sql(sql, values)[0]
     if row is not None:

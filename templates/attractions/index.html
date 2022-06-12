@@ -3,7 +3,9 @@
 {% block content %}
     
     <h2>Attractions</h2>
-    <p>/attractions</p>
-
+    <p><a href="/attractions/new">Add Attraction</a></p>
+    {% for attraction in all_attractions %}
+        <p><a href="/attractions/{{attraction.id}}">{{ attraction.name }}</a></p>
+    {% endfor %}    
 
 {% endblock content %}

@@ -2,6 +2,7 @@
 
 {% block content %}
     <h2>City Manager</h2>
+    <p><a href="/cities/new">Add City</a></p>
     {% for city in all_cities %}
     <p>
         <a href="/cities/{{ city.id }}">{{ city.name }}</a> - {{ city.country.name }}

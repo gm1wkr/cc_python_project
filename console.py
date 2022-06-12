@@ -15,16 +15,16 @@ import repositories.notes_repository as notes_repository
 
 # COUNTRIES
 country_repository.delete_all()
-scotland = Country("Scotland", "UK")
+scotland = Country("Scotland", "UK",None, None, None)
 country_repository.save(scotland)
-wales = Country("Wales", "UK")
+wales = Country("Wales", "UK",None, None, None)
 country_repository.save(wales)
 country_list = country_repository.select_all()
 
 
 
 # CITIES
-city_1 = City("Edinboro", scotland)
+city_1 = City("Edinboro", scotland,)
 city_repository.save(city_1)
 city_2 = City("Glasgow", scotland)
 city_repository.save(city_2)
