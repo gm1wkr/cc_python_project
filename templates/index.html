@@ -3,5 +3,45 @@
 {% block content %}
     Welcome (Home) /index.html
 
-    <h2></h2>
+    <section class="dashboard">
+
+        <section class="notes">
+            <h3>Notes</h3>
+            <p>you have XXX Notes</p>
+        </section>
+
+        <section>
+            <h3>Attractions</h3>
+            <h4>unvisited</h4>
+            
+            <ul>
+                {% for attractions in unvisited %}
+                    {% for attraction in attractions %}
+                        <li>{{ attraction.name }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+
+            <h4>Visited</h4>
+            
+            <ul>
+                {% for place in visited %}
+                    <li>{{place.name}}</li>
+                {% endfor %}
+            </ul>
+
+
+        </section>
+
+        <section>
+            <h3>Cities</h3>
+            <p>You have xxx Cities</p>
+        </section>
+
+        <section>
+            <h3>Countries</h3>
+            <p>You have XXX Countries</p>
+        </section>
+
+    </section>
 {% endblock content %}

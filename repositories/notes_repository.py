@@ -78,4 +78,9 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-
+def get_number_of_notes():
+    sql = "SELECT count(*) from notes"
+    row = run_sql(sql)[0]
+    if row[0] >= 1:
+        return row[0]
+    return None

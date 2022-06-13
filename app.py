@@ -5,7 +5,7 @@ from controllers.cities_controller import cities_blueprint
 from controllers.attractions_controller import attractions_blueprint
 from controllers.notes_controller import notes_blueprint
 
-
+import repositories.attractions_repository as attractions_repository
 
 app = Flask(__name__)
 
@@ -17,7 +17,11 @@ app.register_blueprint(notes_blueprint)
 
 @app.route("/")
 def main():
-    return render_template("index.html")
+
+    unvisited = attractions_repository.get_unvisited_attractions(),
+    visited = attractions_repository.get_visited_attractions()
+
+    return render_template("index.html", visited=visited, unvisited=unvisited)
 
 if __name__ == "__main__":
     app.run()

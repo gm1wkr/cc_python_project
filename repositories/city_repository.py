@@ -54,3 +54,9 @@ def delete(id):
     run_sql(sql, values)
 
 
+def get_number_of_cities():
+    sql = "SELECT count(*) from cities"
+    row = run_sql(sql)[0]
+    if row[0] >= 1:
+        return row[0]
+    return None

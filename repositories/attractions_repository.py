@@ -76,3 +76,45 @@ def delete(id):
     sql = "DELETE FROM attractions WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+
+def get_number_of_attractions():
+    sql = "SELECT count(*) from attractions"
+    row = run_sql(sql)[0]
+    if row[0] >= 1:
+        return row[0]
+    return None
+
+
+def get_number_of_unvisited_attractions():
+    sql = "SELECT count(*) from attractions"
+    row = run_sql(sql)[0]
+    if row[0] >= 1:
+        return row[0]
+    return None
+
+
+def get_visited_attractions():
+    attractions = []
+    sql = "SELECT * from attractions WHERE visited IS TRUE"
+    row = run_sql(sql)[0]
+    results = run_sql(sql)
+    for row in results:
+        city = city_repository.select(row['city_id'])
+        attraction = Attraction(row['name'], row['description'], city, row['date'], row['id'], row['visited'])
+        attractions.append(attraction)
+        
+    return attractions
+
+
+def get_unvisited_attractions():
+    attractions = []
+    sql = "SELECT * from attractions WHERE visited IS NOT TRUE"
+    row = run_sql(sql)[0]
+    results = run_sql(sql)
+    for row in results:
+        city = city_repository.select(row['city_id'])
+        attraction = Attraction(row['name'], row['description'], city, row['date'], row['id'],row['visited'])
+        attractions.append(attraction)
+
+    return attractions
