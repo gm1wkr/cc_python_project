@@ -6,12 +6,12 @@
     <section class="dashboard">
 
         <section class="notes">
-            <h3>Notes</h3>
-            <p>you have XXX Notes</p>
+            <h3><a href="/notes">Notes</a></h3>
+            <p>you have {{stats_dict['num_notes']}}  Notes</p>
         </section>
 
         <section>
-            <h3>Attractions</h3>
+            <h3><a href="/attractions">Attractions</a> </h3>
             <h4>unvisited</h4>
             
             <ul>
@@ -34,13 +34,13 @@
         </section>
 
         <section>
-            <h3>Cities</h3>
-            <p>You have xxx Cities</p>
+            <h3><a href="/cities">Cities</a></h3>
+            <p>You have {{stats_dict['num_cities']}} Cities</p>
         </section>
 
         <section>
-            <h3>Countries</h3>
-            <p>You have XXX Countries</p>
+            <h3><a href="/countries">Countries</a></h3>
+            <p>You have {{stats_dict['num_countries']}} Countries</p>
         </section>
 
     </section>
