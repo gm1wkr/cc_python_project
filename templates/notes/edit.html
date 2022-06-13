@@ -1,0 +1,38 @@
+{% extends 'base.html' %}   
+
+{% block content %}
+    <h2>Edit {{ note.title }} / {{ note.attraction.name }}</h2>
+
+    <form action="/notes/{{ note.id }}" method="POST">
+        <div>
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" value="{{ note.title }}">
+        </div>
+        <div>
+            <label for="date">Date</label>
+            <input type="date" name="date" id="date" value="{{ note.date }}">
+        </div>
+        <div>
+            <label for="attraction">Attraction</label>
+            <select  name="attraction_id" id="attraction">
+                {% for attraction in all_attractions %}
+                    
+                <option {%if attraction.id == note.attraction.id%}selected='selected'{% endif %}
+                    value="{{ attraction.id }}">{{ attraction.name }}
+                </option>
+
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" cols="30" rows="10">{{ note.description }}</textarea>
+        </div>
+
+        <div><label for=""></label>
+            <input type="submit" value="Edit Note">
+        </div>
+    </form>
+
+
+{% endblock content %}   

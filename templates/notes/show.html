@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ note.title }}</h2>
+    <p>
+    {{ note.attraction.name }}
+    {{ note.attraction.city.name }}
+    {{ note.attraction.city.country.name }}
+    {{ note.title }}
+    </p>
+
+    <form action="/notes/{{ note.id }}/delete" method="POST">
+        <button type="submit">Delete {{ note.name }}</button>
+    </form>
+
+    <p><a href="/notes/{{ note.id }}/edit">Edit</a></p>
+{% endblock content %}

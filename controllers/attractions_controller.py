@@ -71,7 +71,6 @@ def update_attraction(id):
     city = city_repository.select(city_id)
     new_attraction = Attraction(name, description, city, date, id, visited)
     attractions_repository.update(new_attraction)
-    print(new_attraction)
     return redirect(f"/attractions/{id}")
 
 
