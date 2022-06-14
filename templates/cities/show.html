@@ -19,6 +19,16 @@
     <form action="/cities/{{ city.id }}/delete" method="POST">
         <button type="submit">Delete {{ city.name }}</button>
     </form>
+
+    <section>
+        <h3>Attractions in {{ city.name }}</h3>
+        <ul>
+            {% for attraction in attractions %}
+                <li><a href="/attractions/{{attraction.id}}">{{ attraction.name }}</a></li>
+            {% endfor %}
+        </ul>
+
+    </section>
 {% endblock content %}
 
 

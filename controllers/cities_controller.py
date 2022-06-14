@@ -5,6 +5,7 @@ from models.cities import City
 from models.countries import Country
 import repositories.city_repository as city_repository
 import repositories.country_repository as country_repository
+import repositories.attractions_repository as attractions_repository
 from models.countries_list import all_countries_list as list_of_all_countries
 
 cities_blueprint = Blueprint("cities", __name__)
@@ -23,7 +24,8 @@ def cities():
 @cities_blueprint.route("/cities/<id>")
 def show_cities(id):
     found_city = city_repository.select(id)
-    return render_template("cities/show.html", city=found_city)
+    found_attractions = attractions_repository.attractions_by_city(id)
+    return render_template("cities/show.html", city=found_city, attractions=found_attractions)
 
 
 # NEW 
@@ -58,11 +60,29 @@ def create_city():
 
 
 # EDIT
-
+@cities_blueprint.route("/cities/<id>/edit", methods=["GET"])
+def edit_city(id):
+    city = city_repository.select(id)
+    countries = country_repository.select_all()
+    return render_template("/cities/edit.html", city=city, countries=countries)
 
 
 # UPDATE
+@cities_blueprint.route("/cities/<id>", methods=["POST"])
+def update_city(id):
+    city_name = request.form['city']
+    country = request.form['country']
+    new_country = Country(country, None, None, None, None)
+    new_country.region = new_country.get_country_by_name(country)['continent']
+    new_country.capital = new_country.get_country_by_name(country)['capital']
+    new_country.timezones = new_country.get_country_by_name(country)['timezones']
+    new_country.code = new_country.get_country_by_name(country)['code']
+    new_country = country_repository.save(new_country)
 
+    city = city_repository.select(city_id)
+    new_city = City(city_name, new_country, id)
+    city_repository.update(new_city)
+    return redirect(f"/cities/{id}")
 
 
 # DELETE 

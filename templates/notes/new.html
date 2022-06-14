@@ -11,16 +11,28 @@
         </div>
         <div>
             <label for="date">Date</label>
-            <input type="date" name="date" id="date">
+            <input type="date" name="date" id="date" value="2022-12-25">
         </div>
         <div>
             <label for="attraction">Attraction</label>
             <select  name="attraction_id" id="attraction">
-                {% for attraction in all_attractions %}
-                    
-                    <option value="{{ attraction.id }}">{{ attraction.name }}</option>
 
-                {% endfor %}
+
+                {% if attraction %}
+                    <option value="{{ attraction.id }}">{{ attraction.name }}</option>
+                {% else %}
+                    {% for attraction in all_attractions %}
+                        
+                        <option value="{{ attraction.id }}">{{ attraction.name }}</option>
+
+                    {% endfor %}      
+                    
+                {% endif %}
+
+
+
+
+
             </select>
         </div>
         <div>

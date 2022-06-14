@@ -26,8 +26,9 @@ num_attractions = attractions_repository.get_number_of_attractions()
 visited_attractions = attractions_repository.get_visited_attractions()
 unvisited_attractions = attractions_repository.get_unvisited_attractions()
 
+all_cities = city_repository.select_all()
+city_1 = all_cities[0].id
+attractions = attractions_repository.attractions_by_city(city_1)
 
-for visited in visited_attractions:
-    print(visited)
 
 pdb.set_trace()

@@ -118,3 +118,19 @@ def get_unvisited_attractions():
         attractions.append(attraction)
 
     return attractions
+
+
+def attractions_by_city(city_id):
+    attractions = []
+    sql = """SELECT attractions.* from attractions 
+            INNER JOIN cities
+            ON attractions.city_id = cities.id
+            WHERE cities.id = %s
+            """
+    values =[city_id]
+    results = run_sql(sql, values)
+    for attraction in results:
+        city = city_repository.select(city_id)
+        attraction = Attraction(attraction['name'], attraction['description'], city, attraction['date'], attraction['id'],attraction['visited'])
+        attractions.append(attraction)
+    return attractions

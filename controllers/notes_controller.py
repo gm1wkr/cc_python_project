@@ -17,7 +17,7 @@ def notes():
 
 
 # SHOW 
-# GET '/cities/<id>'
+# GET '/notes/<id>'
 @notes_blueprint.route("/notes/<id>")
 def show_note(id):
     found_note = notes_repository.select(id)
@@ -25,10 +25,18 @@ def show_note(id):
 
 
 
+
+# GET '/notes/new/<attraction_id>'
+@notes_blueprint.route("/notes/new/<attraction_id>", methods=["GET"])
+def add_note_to_attraction(attraction_id):
+    attraction = attractions_repository.select(attraction_id)
+    return render_template("notes/new.html", attraction=attraction)
+
+
 # NEW 
 # GET '/notes/new'
 @notes_blueprint.route("/notes/new", methods=["GET"])
-def add_note():
+def new_note():
     attractions = attractions_repository.select_all()
     return render_template("notes/new.html", all_attractions=attractions)
 
