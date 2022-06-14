@@ -2,41 +2,49 @@
 
 {% block content %}
 
-    <section class="dashboard">
-        <p>This is a paragraph meant to help me typeset as best as I possible can being a mere embryonic developer.  Ahh, need some more meaningful text in here so we flow over a line, or maybe even tow or three.  Bugger, still need some more so it flows onto several lines .. ahh but I still have to set a max character width!</p>
-        <section>
-            <h2><a href="/attractions">Attractions</a> </h2>
-            <h4>unvisited</h4>
-            <ul>
-                {% for attractions in unvisited %}
-                    {% for attraction in attractions %}
-                    <li>{{ attraction.name }}</li>
-                    {% endfor %}
-                    {% endfor %}
-                </ul>
-                
-                <h4>Visited</h4>
-                <ul>
-                    {% for place in visited %}
-                    <li>{{place.name}}</li>
-                    {% endfor %}
-                </ul>
-        </section>
-
-        <section class="notes">
-            <h2><a href="/notes">Notes</a></h2>
-            <p>you have {{stats_dict['num_notes']}}  Notes</p>
-        </section>
-
-        <section>
-            <h2><a href="/cities">Cities</a></h2>
-            <p>You have {{stats_dict['num_cities']}} Cities</p>
-        </section>
-
-        <section>
-            <h2><a href="/countries">Countries</a></h2>
-            <p>You have {{stats_dict['num_countries']}} Countries</p>
-        </section>
+    <!-- <p>This is a paragraph meant to help me typeset as best as I possible can being a mere embryonic developer.  Ahh, need some more meaningful text in here so we flow over a line, or maybe even tow or three.  Bugger, still need some more so it flows onto several lines .. ahh but I still have to set a max character width!</p> -->
+    <section class="dashboard dashboard__background">
+        <!-- <div class=""> -->
+            <section class="dashboard__attractions dashboard__child">
+                <div>
+                    <h2><a href="/attractions">Attractions</a> </h2>
+                    <p class="tagline">Make memories Dreams and Dreams possible</p>
+                </div>
+                <div class="attractions-grid">
+                    <div class="attractions-grid-child">
+                        <h3>The Unknown</h3>
+                        <ul>
+                        {% for attractions in unvisited %}
+                            {% for attraction in attractions %}
+                            <li>{{ attraction.name }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                        </ul>
+                    </div>
+            
+                    <div class="attractions-grid-child">
+                        <h3>Memories</h3>
+                        <ul>
+                            {% for place in visited %}
+                            <li>{{place.name}}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="dashboard__notes dashboard__child">
+                <h2><a href="/notes">Notes</a></h2>
+                <p class="centered-text">{{stats_dict['num_notes']}}</p>
+            </section>
+            <section class="dashboard__cities dashboard__child">
+                <h2><a href="/cities">Cities</a></h2>
+                <p class="centered-text">{{stats_dict['num_cities']}}</p>
+            </section>
+            <section class="dashboard__countries dashboard__child">
+                <h2><a href="/countries">Countries</a></h2>
+                <p class="centered-text">{{stats_dict['num_countries']}}</p>
+            </section>
+        <!-- </div> -->
 
     </section>
 {% endblock content %}
