@@ -12,11 +12,11 @@
     
     */
 
-    --accent-color-10: hsl(12, 100%, 88%);
-    --accent-color-15: hsl(12, 100%, 80%);
-    --accent-color-20: hsl(12, 100%, 60%);
-    --accent-color-40: hsl(12, 100%, 40%);
-    --accent-color-50: hsl(12, 60%, 20%);
+    --accent-color-10: hsl(30, 100%, 88%);
+    --accent-color-15: hsl(30, 100%, 80%);
+    --accent-color-20: hsl(30, 100%, 60%);
+    --accent-color-40: hsl(30, 100%, 40%);
+    --accent-color-50: hsl(30, 60%, 20%);
 
     --color-40: hsl(0, 0%, 10%);
     --color-35: hsl(0, 0%, 18%);
@@ -32,7 +32,8 @@
 
     --box-shadow-20: 4px 8px 10px -3px rgba(0, 0, 0, 0.8);
 
-    --link-transition: color 0.3s ease-in-out;
+    --link-transition:  color 0.3s ease-in-out, 
+                        background-color 0.6s ease-in-out;
 }
 
 *,
@@ -44,8 +45,8 @@
 }
 
 html {
-    font-size: 62.5%;
     /*  16px * 62.5% = 10px  */
+    /* font-size: 14px; */
     font-family: Roboto, sans-serif;
     font-weight: 400;
     background-color: var(--surface-40);
@@ -95,6 +96,8 @@ h4 {
     margin: 3rem 0 1.38rem;
     font-weight: 400;
     line-height: 1.3;
+
+    letter-spacing: 0.12rem;
     text-transform: capitalize;
 }
 
@@ -103,6 +106,8 @@ main {}
 ul {
     list-style: none;
     margin-left: 3rem;
+    margin-right: 3rem;
+    margin: 0 3rem 1rem 3rem;
 }
 
 h1 {
@@ -115,7 +120,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2.21rem;
+    font-size: 1.8rem;
     text-align: center;
     margin-top: 0;
     margin-bottom: 0rem;
@@ -181,7 +186,7 @@ footer {
 
 
 .dashboard__background {
-    background-image: url('/static/img/tianshu-liu-1200.jpeg');
+    background-image: url('/static/img/tianshu-liu-bright.jpeg');
     /* background-color: var(--surface-30); */
     background-position: center;
     background-size: cover;
@@ -242,8 +247,34 @@ footer {
 
 
 .attractions-grid-child {
-
+    width: 100%;
     height: 100%;
-    /* background-color: var(--surface-20); */
+    /* background-color: var(--surface-40); */
     /* border: 1px solid var(--accent-color-20); */
+}
+
+.attractions-grid-child a {
+    display: block;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight:400;
+    width: 100%;
+    /* line-height: 2.2rem; */
+    margin: auto;
+    /* margin-bottom: 1.2rem; */
+    padding: 0.6rem 1.2rem;
+    /* background-color: var(--surface-40); */
+    color: var(--accent-color-10);
+    /* border-bottom: 1px solid transparent; */
+    border-left: 2px solid var(--color-35);
+    border-radius: 0.16rem;
+    transition: var(--link-transition);
+    letter-spacing: 0.1rem;;
+}
+
+.attractions-grid-child a:hover {
+    background-color: var(--surface-40);
+    color: var(--accent-color-15);
+    /* border-bottom: 1px solid var(--accent-color-10); */
+    border-left: 2px solid var(--accent-color-10);
 }

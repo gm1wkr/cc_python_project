@@ -16,7 +16,7 @@
                         <ul>
                         {% for attractions in unvisited %}
                             {% for attraction in attractions %}
-                            <li>{{ attraction.name }}</li>
+                            <li><a href="/attractions/{{ attraction.id }}">{{attraction.name}}</a></li>
                             {% endfor %}
                         {% endfor %}
                         </ul>
@@ -26,7 +26,7 @@
                         <h3>Memories</h3>
                         <ul>
                             {% for place in visited %}
-                            <li>{{place.name}}</li>
+                            <li><a href="/attractions/{{ place.id }}">{{place.name}}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
