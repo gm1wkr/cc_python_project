@@ -1,41 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    Welcome (Home) /index.html
 
     <section class="dashboard">
-
-        <section class="notes">
-            <h3><a href="/notes">Notes</a></h3>
-            <p>you have {{stats_dict['num_notes']}}  Notes</p>
-        </section>
-
+        <p>This is a paragraph meant to help me typeset as best as I possible can being a mere embryonic developer.  Ahh, need some more meaningful text in here so we flow over a line, or maybe even tow or three.  Bugger, still need some more so it flows onto several lines .. ahh but I still have to set a max character width!</p>
         <section>
-            <h3><a href="/attractions">Attractions</a> </h3>
+            <h2><a href="/attractions">Attractions</a> </h2>
             <h4>unvisited</h4>
             <ul>
                 {% for attractions in unvisited %}
                     {% for attraction in attractions %}
-                        <li>{{ attraction.name }}</li>
+                    <li>{{ attraction.name }}</li>
                     {% endfor %}
-                {% endfor %}
-            </ul>
-
-            <h4>Visited</h4>
-            <ul>
-                {% for place in visited %}
+                    {% endfor %}
+                </ul>
+                
+                <h4>Visited</h4>
+                <ul>
+                    {% for place in visited %}
                     <li>{{place.name}}</li>
-                {% endfor %}
-            </ul>
+                    {% endfor %}
+                </ul>
+        </section>
+
+        <section class="notes">
+            <h2><a href="/notes">Notes</a></h2>
+            <p>you have {{stats_dict['num_notes']}}  Notes</p>
         </section>
 
         <section>
-            <h3><a href="/cities">Cities</a></h3>
+            <h2><a href="/cities">Cities</a></h2>
             <p>You have {{stats_dict['num_cities']}} Cities</p>
         </section>
 
         <section>
-            <h3><a href="/countries">Countries</a></h3>
+            <h2><a href="/countries">Countries</a></h2>
             <p>You have {{stats_dict['num_countries']}} Countries</p>
         </section>
 
