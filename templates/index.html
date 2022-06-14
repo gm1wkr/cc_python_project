@@ -13,7 +13,6 @@
         <section>
             <h3><a href="/attractions">Attractions</a> </h3>
             <h4>unvisited</h4>
-            
             <ul>
                 {% for attractions in unvisited %}
                     {% for attraction in attractions %}
@@ -23,14 +22,11 @@
             </ul>
 
             <h4>Visited</h4>
-            
             <ul>
                 {% for place in visited %}
                     <li>{{place.name}}</li>
                 {% endfor %}
             </ul>
-
-
         </section>
 
         <section>

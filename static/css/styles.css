@@ -1,3 +1,64 @@
-body{
-    background-color: bisque;
-}
+/* Fonts (Google Fonts import)
+        - Roboto 100, 100i, 300, 400, 700
+        - Raleway 200, 400, 600
+ */
+ @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,400;0,600;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100&display=swap');
+
+ :root{
+    /* Higher Number= Darker!!!! 
+
+    
+    */
+
+    --accent-color-20: hsl(12, 100%, 60%);
+    --accent-color-40: hsl(12, 100%, 40%);
+
+    --color-40: hsl(0, 0%, 10%);
+    --color-30: hsl(0, 0%, 30%);
+    --color-20: hsl(0, 0%, 60%);
+    --color-10: hsl(0, 0%, 90%);
+
+    --surface-40: hsl(0, 0%, 10%);
+    --surface-30: hsl(0, 0%, 30%);
+    --surface-20: hsl(0, 0%, 60%);
+    --surface-10: hsl(0, 0%, 90%);
+ }
+ 
+ *,
+ *::before,
+ *::after {
+     box-sizing: border-box;
+     padding:0em;
+     margin: 0em;
+ }
+ 
+ html{
+     font-size: 100%;
+     background-color: var(--surface-40);
+     color: var(--color-10);
+ }
+
+ body{
+    max-width: 86vw;
+    margin: 0 auto;
+ }
+
+ header {
+     margin-bottom: 2rem;
+     display:flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ header > nav > ul {
+    list-style: none; 
+    display: flex;
+ }
+
+ header > nav >ul > li {
+     margin-right: 2rem;
+ }
+
+ h1, h2, h3, h4 {
+     font-family: Roboto;
+ }
