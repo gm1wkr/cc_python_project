@@ -12,7 +12,7 @@
                 </div>
                 <div class="attractions-grid">
                     <div class="attractions-grid-child">
-                        <h3>The Unknown</h3>
+                        <h3>Yet To ...</h3>
                         <ul>
                         {% for attractions in unvisited %}
                             {% for attraction in attractions %}
@@ -23,7 +23,7 @@
                     </div>
             
                     <div class="attractions-grid-child">
-                        <h3>Memories</h3>
+                        <h3>Been To ...</h3>
                         <ul>
                             {% for place in visited %}
                             <li><a href="/attractions/{{ place.id }}">{{place.name}}</a></li>
@@ -32,14 +32,17 @@
                     </div>
                 </div>
             </section>
+
             <section class="dashboard__notes dashboard__child">
                 <h2><a href="/notes">Notes</a></h2>
                 <p class="centered-text">{{stats_dict['num_notes']}}</p>
             </section>
+
             <section class="dashboard__cities dashboard__child">
                 <h2><a href="/cities">Cities</a></h2>
                 <p class="centered-text">{{stats_dict['num_cities']}}</p>
             </section>
+            
             <section class="dashboard__countries dashboard__child">
                 <h2><a href="/countries">Countries</a></h2>
                 <p class="centered-text">{{stats_dict['num_countries']}}</p>
