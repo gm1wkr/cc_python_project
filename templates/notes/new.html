@@ -3,46 +3,41 @@
 {% block content %}
     
     <h2>Add Note</h2>
+    <section class="notes manager-content">
+        <form action="/notes" method="POST">
+            <div class="form-child">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+            </div>
 
-    <form action="/notes" method="POST">
-        <div>
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title">
-        </div>
-        <div>
-            <label for="date">Date</label>
-            <input type="date" name="date" id="date" value="2022-12-25">
-        </div>
-        <div>
-            <label for="attraction">Attraction</label>
-            <select  name="attraction_id" id="attraction">
+            <div class="form-child">
+                <label for="date">Date</label>
+                <input type="date" name="date" id="date" value="2022-12-25">
+            </div>
 
-
-                {% if attraction %}
-                    <option value="{{ attraction.id }}">{{ attraction.name }}</option>
-                {% else %}
-                    {% for attraction in all_attractions %}
-                        
+            <div class="form-child">
+                <label for="attraction">Attraction</label>
+                <select  name="attraction_id" id="attraction">
+                    {% if attraction %}
                         <option value="{{ attraction.id }}">{{ attraction.name }}</option>
+                    {% else %}
+                        {% for attraction in all_attractions %}  
+                            <option value="{{ attraction.id }}">{{ attraction.name }}</option>
+                        {% endfor %}             
+                    {% endif %}
+                </select>
+            </div>
 
-                    {% endfor %}      
-                    
-                {% endif %}
+            <div class="form-child">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            </div>
 
-
-
-
-
-            </select>
-        </div>
-        <div>
-            <label for="description">Description</label>
-            <textarea name="description" id="description" cols="30" rows="10"></textarea>
-        </div>
-
-        <div><label for=""></label>
-            <input type="submit" value="Add Note">
-        </div>
-    </form>
-
+            <div class="form-child">
+                <label for=""></label>
+                <input type="submit" value="Add Note">
+            </div>
+            
+        </form>
+    </section>
 {% endblock content %}

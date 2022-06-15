@@ -5,12 +5,12 @@
     <h2>Edit {{ attraction.name }}</h2>
 
     <form action="/attractions/{{ attraction.id }}" method="POST">
-        <div>
+        <div class="form-child">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" value="{{ attraction.name }}">
         </div>
 
-        <div>
+        <div class="form-child">
             <label for="city">City</label>
             <select name="city_id" id="city">
                 <optgroup label="Choose City">
@@ -19,17 +19,21 @@
                     {% endfor %}
                 </optgroup>
             </select>
-            <span><a href="/cities/new">Add City</a></span>
+            <span>
+                <a href="/cities/new">
+                    <i class="fa-solid fa-circle-plus mr-1"></i>Add City
+                </a>
+            </span>
 
 
         </div>
 
-        <div>
+        <div class="form-child">
             <label for="date">Date</label>
             <input type="date" name="date" id="date" value="{{ attraction.date }}">
         </div>
 
-        <div>
+        <div class="form-child">
             <label for="description">Description</label>
             <textarea 
                 name="description" 
@@ -39,7 +43,7 @@
                 placeholder="Enter a description">{{ attraction.description }}</textarea>
         </div>
 
-        <div>
+        <div class="form-child">
             <label for="visited">Visited</label>
             <select name="visited" id="visited">
                 <option value="0" {% if not attraction.visited %}selected="selected"{% endif %}>Not Yet</option>
@@ -47,7 +51,7 @@
             </select>
         </div>
 
-        <div>
+        <div class="form-child">
             <label for=""></label>
             <input type="submit" value="Edit">
         </div>

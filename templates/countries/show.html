@@ -1,12 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<section class="notes manager-content">
+
     <h2>{{ country.name }}</h2>
-    <p>{{ country.region }}</p>
-    <p><a href="/countries/{{ country.id }}/edit">Edit</a></p>
-    <form action="/countries/{{ country.id }}/delete" method="POST">
-        <button type="submit">Delete {{ country.name }}</button>
-    </form>
+
+
+
+    <nav class="navigation-secondary">
+        <ul>
+            <li><a href="/countries/new"><i class="fa-solid fa-circle-plus mr-1"></i>Add Country</a></li>
+            <li><a href="/countries/{{ country.id }}/edit">Edit</a></li>
+            <li>
+                <form action="/countries/{{ country.id }}/delete" method="POST">
+                    <button class="link-button" type="submit">Delete {{ country.name }}</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+
+
+
+</section>
 {% endblock content %}
 
 

@@ -5,11 +5,11 @@
     <h2>Editing {{ current_country.name }}</h2>
 
     <form action="/countries/{{ current_country.id }}" method="POST">
-        <div>
+        <div class="form-child">
             <label for="region">Region</label>
             <input type="text" id="region" name="region" value="{{ current_country.region }}">
         </div>
-        <div>
+        <div class="form-child">
             <label for="country">Country</label>
                 <select id="country" name="country" class="form-control">
                     {% for country in countries %}
@@ -19,7 +19,7 @@
                 {% endfor %}     
                 </select>
         </div>
-        <div>
+        <div class="form-child">
             <label for=""></label>
             <input type="submit" value="Update Country">
         </div>

@@ -109,14 +109,7 @@ ul.navigation>li,
 }
 
 
-.link-button{
-    /* padding: 0.3rem 0; */
-    border: none;
-    background-color: transparent;
-}
-.link-button:hover{
-    color: #f20;
-}
+
 /* .navigation-secondary a {
     font-size: 1.3rem;
     text-decoration: none;
@@ -126,6 +119,9 @@ ul.navigation>li,
     border-bottom: 1px solid transparent;
     transition: var(--link-transition);
 } */
+
+
+
 
 .navigation-secondary a:hover {
     border-top: 1px solid var(--accent-color-10);
@@ -157,6 +153,26 @@ ul {
     margin-left: 3rem;
     margin-right: 3rem;
     margin: 0 3rem 1rem 3rem;
+}
+
+dl{
+    /* max-width: 60%; */
+    margin: auto;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.12rem;
+    color: var(--accent-color-10);
+    background-color: var(--surface-35);
+}
+
+dt{
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+dd{
+    margin-left: 0.6rem;
+    margin-bottom: 1.6rem;
 }
 
 h1 {
@@ -206,6 +222,16 @@ h2 a:hover {
 }
 
 
+a{
+    color: var(--accent-color-20);
+    transition: var(--link-transition);
+}
+
+
+a:hover{
+    color: var(--accent-color-10);
+}
+
 p {
     font-size: 1.3rem;
     font-weight: 300;
@@ -215,21 +241,7 @@ p {
     letter-spacing: 0.084rem;
 }
 
-p.centered-text {
-    display: block;
-    text-align: center;
-    margin-left: 0;
-}
 
-p.tagline {
-    font-family: 'Raleway', sans-serif;
-    font-style: italic;
-    font-weight: 200;
-    margin:0;
-    margin-bottom: 0.8rem;
-    text-align: center;
-    line-height: 2.8rem;;
-}
 
 footer {
     margin-top: 2.4rem;
@@ -337,6 +349,135 @@ footer {
     border-left: 2px solid var(--accent-color-10);
 }
 
+
+.panel-grid {
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    align-items: start;
+    gap: 2rem;
+}
+
+.panel-grid__children {
+    height:100%;
+    width: 80%;
+    margin: auto;
+}
+
+.flag > img {
+    margin: auto;
+}
+
+
+/* 
+*******            HELPERS 
+*/
 .mr-1 {
     margin-right: 1rem
 }
+
+
+p.centered-text {
+    max-width: 60ch;
+    display: block;
+    text-align: center;
+    margin:auto;
+    margin-bottom: 1.6rem;
+}
+
+p.tagline {
+    max-width:80vw;
+    font-family: 'Raleway', sans-serif;
+    font-style: italic;
+    font-weight: 200;
+    margin:auto;
+    margin-bottom: 1.6rem;
+    text-align: center;
+    line-height: 2.8rem;;
+}
+
+
+/* 
+*******            FORMS 
+*/
+
+
+form{
+    border: 1px solid var(--color-30);
+    max-width: 54vw;
+    margin: 2.4rem auto;
+    padding: 2rem;
+    background-color: var(--surface-40);
+    border-radius: 1rem;;
+}
+
+.form-child{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.4rem;
+    font-size: 1.2rem;
+}
+
+.form-child > label {
+    width: 9rem;
+}
+
+.form-child > input,
+.form-child select,
+.form-child textarea {
+    flex-grow: 1;
+    background-color: var(--color-10);
+    padding: 0.4rem 1rem;
+    font-size: 1.2rem;
+}
+
+.form-child > span {
+    display:block;
+    height: 100%;
+    padding: 0.4rem 1rem;
+}
+
+
+input[type=submit]{
+    background-color: var(--surface-30);
+    color: var(--accent-color-30);
+    transition: var(--link-transition);
+}
+
+
+input:hover{
+    background-color: var(--surface-40);
+    color: var(--accent-color-40);
+}
+
+
+.navigation-secondary form {
+    margin: 0;
+    padding: 0;
+}
+
+
+.link-button{
+    /* padding: 0.3rem 0; */
+    border: unset;
+    border-radius: 0;
+    background-color: transparent;
+}
+.link-button:hover{
+    color: #f20;
+}
+
+
+/* .form-child > span {
+    display:block;
+    height: 100%;
+    padding: 0.4rem 1rem;
+}
+
+.form-child > span {
+    display:block;
+    height: 100%;
+    padding: 0.4rem 1rem;
+} */

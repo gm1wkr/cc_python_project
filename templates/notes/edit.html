@@ -1,18 +1,19 @@
 {% extends 'base.html' %}   
 
 {% block content %}
+<section class="attractions manager-content">
     <h2>Edit {{ note.title }} / {{ note.attraction.name }}</h2>
 
     <form action="/notes/{{ note.id }}" method="POST">
-        <div>
+        <div class="form-child">
             <label for="title">Title</label>
             <input type="text" name="title" id="title" value="{{ note.title }}">
         </div>
-        <div>
+        <div class="form-child">
             <label for="date">Date</label>
             <input type="date" name="date" id="date" value="{{ note.date }}">
         </div>
-        <div>
+        <div class="form-child">
             <label for="attraction">Attraction</label>
             <select  name="attraction_id" id="attraction">
                 {% for attraction in all_attractions %}
@@ -24,15 +25,16 @@
                 {% endfor %}
             </select>
         </div>
-        <div>
+        <div class="form-child">
             <label for="description">Description</label>
             <textarea name="description" id="description" cols="30" rows="10">{{ note.description }}</textarea>
         </div>
 
-        <div><label for=""></label>
+        <div class="form-child">
+            <label for=""></label>
             <input type="submit" value="Edit Note">
         </div>
     </form>
-
+</section>
 
 {% endblock content %}   

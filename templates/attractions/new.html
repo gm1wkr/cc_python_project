@@ -2,41 +2,42 @@
 
 {% block content %}
     <h2>Add Attraction</h2>
+    <section class="attractions manager-content">
+        <form action="/attractions" method="POST">
+            <div class="form-child">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+            </div>
 
-    <form action="/attractions" method="POST">
-        <div>
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name">
-        </div>
-
-        <div>
-            <label for="city">City</label>
-            <select name="city_id" id="city">
-                <optgroup label="Choose City">
-                    {% for city in all_cities %}
-                        <option value="{{ city.id }}">{{ city.name }} - {{ city.country.name }}</option>
-                    {% endfor %}
-                </optgroup>
-            </select>
-            <span><a href="/cities/new">Add City</a></span>
+            <div class="form-child">
+                <label for="city">City</label>
+                <select name="city_id" id="city">
+                    <optgroup label="Choose City">
+                        {% for city in all_cities %}
+                            <option value="{{ city.id }}">{{ city.name }} - {{ city.country.name }}</option>
+                        {% endfor %}
+                    </optgroup>
+                </select>
+                <span><a href="/cities/new"><i class="fa-solid fa-circle-plus mr-1"></i>Add City</a></span>
 
 
-        </div>
+            </div>
 
-        <div>
-            <label for="date">Date</label>
-            <input type="date" name="date" id="date" value="27/06/2022">
-        </div>
+            <div class="form-child">
+                <label for="date">Date</label>
+                <input type="date" name="date" id="date" value="27/06/2022">
+            </div>
 
-        <div>
-            <label for="description">Description</label>
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter a description"></textarea>
-        </div>
+            <div class="form-child">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter a description"></textarea>
+            </div>
 
-        <div>
-            <label for=""></label>
-            <input type="submit" value="Add Attraction">
-        </div>
-    </form>
+            <div class="form-child">
+                <label for=""></label>
+                <input type="submit" value="Add Attraction">
+            </div>
+        </form>
+    </section>
 {% endblock content %}
 

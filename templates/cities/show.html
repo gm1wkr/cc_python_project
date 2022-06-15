@@ -1,34 +1,61 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<section class="notes manager-content">
     <h2>{{ city.name }}</h2>
 
-    <div class="flag">
-        <img
-  src="https://flagcdn.com/224x168/{{ city.country.code.lower() }}.png"
-  width="224"
-  height="168"
-  alt="South Africa">
-    </div>
+    <nav class="navigation-secondary">
+        <ul>
+            <li><a href="/cities/new"><i class="fa-solid fa-circle-plus mr-1"></i>Add City</a></li>
+            <li><a href="/cities/{{ city.id }}/edit"><i class="fa-solid fa-pen mr-1"></i>Edit City</a></li>
+            <li>
+                <form action="/cities/{{ city.id }}/delete" method="POST">
+                    <button class="link-button" type="submit">Delete {{ city.name }}</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+    
+    <article class="panel-grid">
+            <div class="panel-grid__children flag">
+                <img
+                    src="https://flagcdn.com/224x168/{{ city.country.code.lower() }}.png"
+                    width="224"
+                    height="168"
+                    alt="South Africa">
+            </div>
+        
+            <div class="panel-grid__children">
+                <dl>
+                    <dt>City Name</dt>
+                    <dd>{{ city.name }}</dd>
 
-    <p>{{ city.country.region }}</p>
-    <p>{{ city.country.name }}</p>
-    <p>{{ city.country.timezones }}</p>
-    <p>{{ city.country.code }}</p>
-    <p><a href="/cities/{{ city.id }}/edit">Edit</a></p>
-    <form action="/cities/{{ city.id }}/delete" method="POST">
-        <button type="submit">Delete {{ city.name }}</button>
-    </form>
+                    <dt>Region</dt>
+                    <dd>{{ city.country.region }}</dd>
+
+                    <dt>Timezone</dt>
+                    <dd>{{ city.country.timezones }}</dd>
+
+                    <dt>Country code</dt>
+                    <dd>{{ city.country.name }}</dd>
+
+                    <dt>Edit {{ city.name }}</dt>
+                    <dd><a href="/cities/{{ city.id }}/edit"><i class="fa-solid fa-pen mr-1"></i>Edit {{ city.name }}</a></dd>
+                </dl>
+            </div>
+    </article>
+    
 
     <section>
         <h3>Attractions in {{ city.name }}</h3>
-        <ul>
+        <ul class="resource-list">
             {% for attraction in attractions %}
                 <li><a href="/attractions/{{attraction.id}}">{{ attraction.name }}</a></li>
             {% endfor %}
         </ul>
 
     </section>
+</section>
 {% endblock content %}
 
 

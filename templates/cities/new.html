@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<section class="cities manager-content">
     <h2>Add City</h2>
     <form action="/cities" method="POST">
-        <div>
+        <div class="form-child">
             <label for="city">City Name</label>
             <input type="text" name="city">
         </div>
 
-        <div>
+        <div class="form-child">
             <label for="country" method="POST">Country</label>
                 <select id="country" name="country" class="form-control">
                     <optgroup label="My Countries">
@@ -23,11 +24,14 @@
                         {% endfor %}
                     </optgroup>        
                 </select>
+                <span><a href="/countries/new"><i class="fa-solid fa-circle-plus mr-1"></i>Add Country</a></span>
+
         </div>
 
-        <div>
+        <div class="form-child">
             <label for=""></label>
             <input type="submit" value="Add City">
         </div>
     </form>
+</section>
 {% endblock content %}

@@ -1,35 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Edit City</h2>
-    <form action="/cities" method="POST">
-        <div>
-            <label for="city">City Name</label>
-            <input type="text" name="city" value="{{ city.name }}">
-        </div>
+    <section class="cities manager-content">
+        <h2>Edit City</h2>
+        <form action="/cities" method="POST">
+            <div class="form-child">
+                <label for="city">City Name</label>
+                <input type="text" name="city" value="{{ city.name }}">
+            </div>
 
-        <div>
-            <label for="country" method="POST">Country</label>
-                <select id="country" name="country" class="form-control">
-                    <optgroup label="My Countries">
-                        {% for country in countries %}
-                            <option {% if country.name == city.country.name %} selected="selected" {% endif %}
-                             value="{{ country.name }}">{{ country.name }}</option>
-                        {% endfor %}
-                    </optgroup>
-                    <optgroup label="World">
-                        {% for new_country in list_of_countries %}
-                            <option {% if country.name == city.country.name %} selected="selected" {% endif %}
-                             value="{{new_country['name']}}">{{ new_country['name'] }}</option>
-                            
-                        {% endfor %}
-                    </optgroup>        
-                </select>
-        </div>
+            <div class="form-child">
+                <label for="country" method="POST">Country</label>
+                    <select id="country" name="country" class="form-control">
+                        <optgroup label="My Countries">
+                            {% for country in countries %}
+                                <option {% if country.name == city.country.name %} selected="selected" {% endif %}
+                                value="{{ country.name }}">{{ country.name }}</option>
+                            {% endfor %}
+                        </optgroup>
+                        <optgroup label="World">
+                            {% for new_country in list_of_countries %}
+                                <option {% if country.name == city.country.name %} selected="selected" {% endif %}
+                                value="{{new_country['name']}}">{{ new_country['name'] }}</option>
+                                
+                            {% endfor %}
+                        </optgroup>        
+                    </select>
+                    
+            </div>
 
-        <div>
-            <label for=""></label>
-            <input type="submit" value="Add City">
-        </div>
-    </form>
+            <div class="form-child">
+                <label for=""></label>
+                <input type="submit" value="Add City">
+            </div>
+        </form>
+    </section>
 {% endblock content %}
