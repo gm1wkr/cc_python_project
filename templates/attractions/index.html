@@ -2,10 +2,22 @@
 
 {% block content %}
     
-    <h2>Attractions</h2>
-    <p><a href="/attractions/new">Add Attraction</a></p>
-    {% for attraction in all_attractions %}
-        <p><a href="/attractions/{{attraction.id}}">{{ attraction.name }}</a></p>
-    {% endfor %}    
+    <section class="attractions manager-content">
+        <h2>Attractions</h2>
+        <p class="tagline">Some wonderful and inspiring text in here, Ohh yeah Baby!</p>
+
+        <nav class="navigation-secondary">
+            <ul>
+                <li><a href="/attractions/new"><i class="fa-solid fa-circle-plus mr-1"></i>Add Attraction</a></li>
+            </ul>
+        </nav>
+
+        <ul>
+            {% for attraction in all_attractions %}
+                <li><a href="/attractions/{{attraction.id}}">{{ attraction.name }}</a></li>
+            {% endfor %}
+        </ul>
+
+    </section>
 
 {% endblock content %}

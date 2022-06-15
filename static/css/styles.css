@@ -25,7 +25,7 @@
     --color-10: hsl(0, 0%, 90%);
 
     --surface-40: hsl(290, 6%, 10%);
-    --surface-35: hsl(290, 10%, 12%);
+    --surface-35: hwb(290 11% 87%);
     --surface-30: hsl(290, 10%, 30%);
     --surface-20: hsl(290, 10%, 60%);
     --surface-10: hsl(290, 10%, 90%);
@@ -66,16 +66,20 @@ header {
     align-items: center;
 }
 
-ul.navigation {
+ul.navigation,
+.navigation-secondary > ul {
     list-style: none;
     display: flex;
 }
 
-ul.navigation>li {
+ul.navigation>li,
+.navigation-secondary > ul >li {
     margin-right: 1.2rem;
 }
 
-.navigation a {
+.navigation a, 
+.navigation-secondary a,
+.link-button {
     font-size: 1.3rem;
     text-decoration: none;
     letter-spacing: 0.02rem;
@@ -85,9 +89,51 @@ ul.navigation>li {
     transition: var(--link-transition);
 }
 
-.navigation a:hover {
+.navigation a:hover, 
+.navigation-secondary a:hover,
+.link-button:hover {
     color: var(--accent-color-30);
     border-bottom: 1px solid var(--accent-color-20);
+}
+
+.navigation-secondary{
+    margin: 1.6rem;
+    border-bottom: 1px solid var(--accent-color-50);
+}
+.manager-content {
+    margin-top:1.2rem;
+    border: 1px solid var(--accent-color-50);
+}
+.manager-content .tagline{
+    margin-top:1.2rem;
+}
+
+
+.link-button{
+    /* padding: 0.3rem 0; */
+    border: none;
+    background-color: transparent;
+}
+.link-button:hover{
+    color: #f20;
+}
+/* .navigation-secondary a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    letter-spacing: 0.02rem;
+    color: var(--accent-color-15);
+    padding: 0.3rem 1.2rem;
+    border-bottom: 1px solid transparent;
+    transition: var(--link-transition);
+} */
+
+.navigation-secondary a:hover {
+    border-top: 1px solid var(--accent-color-10);
+}
+
+.navigation-secondary{
+   border: none;
+   background: transparent; 
 }
 
 h1,
@@ -179,6 +225,7 @@ p.tagline {
     font-family: 'Raleway', sans-serif;
     font-style: italic;
     font-weight: 200;
+    margin:0;
     margin-bottom: 0.8rem;
     text-align: center;
     line-height: 2.8rem;;
@@ -277,9 +324,19 @@ footer {
     letter-spacing: 0.1rem;;
 }
 
+.attractions-grid-child a>span {
+    display: block;
+    font-size: 1rem;
+    padding: 0.3rem 1rem;
+}
+
 .attractions-grid-child a:hover {
     background-color: var(--surface-40);
     color: var(--accent-color-15);
     /* border-bottom: 1px solid var(--accent-color-10); */
     border-left: 2px solid var(--accent-color-10);
+}
+
+.mr-1 {
+    margin-right: 1rem
 }

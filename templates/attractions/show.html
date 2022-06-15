@@ -1,22 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>
-    {{ attraction.name }}, 
-    {{ attraction.city.name }}, 
-    {{attraction.city.country.code}},  
-    {{attraction.city.country.region}} 
-</h2>
+<section class="attractions">
+    <h2>
+        {{ attraction.name }},
+        {{ attraction.city.name }},
+        {{attraction.city.country.code}},
+        {{attraction.city.country.region}}
+    </h2>
+    
+    
+    <nav class="navigation-secondary">
+        <ul>
+            <li><a href="/attractions/new"><i class="fa-solid fa-circle-plus mr-1"></i>Add Attraction</a></li>
+ 
+            <li>
+                <a href="/attractions/{{ attraction.id }}/edit">Edit {{ attraction.name }}</a>
 
-<p>{{ attraction.date }} - {{ attraction.description }}</p>
-
-<form action="/attractions/{{ attraction.id }}/delete" method="POST">
-    <button type="submit">Delete {{ attraction.name }}</button>
-</form>
-
-<a href="/notes/new/{{ attraction.id }}">Add Note</a>
-
-<p><a href="/attractions/{{ attraction.id }}/edit">Edit {{ attraction.name }}</a></p>
+            </li>
+        </ul>
+    </nav>
+    <p>{{ attraction.date }} - {{ attraction.description }}</p>
+    
+    
+    
+</section>
 
 
 

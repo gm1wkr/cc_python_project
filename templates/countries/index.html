@@ -1,26 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Country Manager</h2>
-<nav class="secondary">
+<section class="countries manager-content">
+    <h2>Country Manager</h2>
+    <p class="tagline">Journey the worls, find you Zen.</p>
+    <nav class="navigation-secondary">
+        <ul>
+            <li><a href="/countries/new"><i class="fa-solid fa-circle-plus mr-1"></i>Add New Country</a></li>
+        </ul>
+    </nav>
+    
+    
     <ul>
-        <li><a href="/countries/new">Add New Country</a></li>
+    {% for country in all_countries %}
+    <!-- Countries as UL?? -->
+        <li>
+    
+            <img src="https://flagcdn.com/16x12/{{country.code.lower()}}.png" srcset="https://flagcdn.com/32x24/{{country.code.lower()}}.png 2x,
+            https://flagcdn.com/48x36/{{country.code.lower()}}.png 3x" width="16" height="12" alt="{{country.name}}">
+    
+            <a href="/countries/{{ country.id }}">{{ country.name }}</a> - {{ country.region }} {{ country.capital }} {{
+            country.code }}
+    
+        </li>
+    
+    
+        {% endfor %}
     </ul>
-</nav>
-
-
-
-{% for country in all_countries %}
-<!-- Countries as UL?? -->
-<p>
-    <a href="/countries/{{ country.id }}">{{ country.name }}</a> - {{ country.region }} {{ country.capital }} {{
-    country.code }}
-</p>
-<p>
-    <img src="https://flagcdn.com/16x12/{{country.code.lower()}}.png" srcset="https://flagcdn.com/32x24/{{country.code.lower()}}.png 2x,
-    https://flagcdn.com/48x36/{{country.code.lower()}}.png 3x" width="16" height="12" alt="{{country.name}}">
-</p>
-{% endfor %}
+</section>
 
 
 

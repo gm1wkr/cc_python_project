@@ -1,12 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>City Manager</h2>
-    <p><a href="/cities/new">Add City</a></p>
-    {% for city in all_cities %}
-    <p>
-        <a href="/cities/{{ city.id }}">{{ city.name }}</a> - {{ city.country.name }}
-    </p>
-    {% endfor %}
+    <section class="cities manager-content">
+        <h2>City Manager</h2>
+        <p class="tagline">The Worlds cities are like Oysters in your Cat</p>
+        <nav class="navigation-secondary">
+            <ul>
+                <li><a href="/cities/new"><i class="fa-solid fa-circle-plus mr-1"></i>Add City</a></li>
+            </ul>
+        </nav>
+
+        <ul>
+            {% for city in all_cities %}
+            <li>
+                <img src="https://flagcdn.com/16x12/{{city.country.code.lower()}}.png" srcset="https://flagcdn.com/32x24/{{city.country.code.lower()}}.png 2x,
+                https://flagcdn.com/48x36/{{city.country.code.lower()}}.png 3x" width="16" height="12" alt="{{city.country.name}}">
+        
+                <a href="/cities/{{ city.id }}">{{ city.name }}</a> - {{ city.country.name }}
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+
     
 {% endblock content %}

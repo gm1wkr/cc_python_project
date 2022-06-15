@@ -2,52 +2,76 @@
 
 {% block content %}
 
-    <!-- <p>This is a paragraph meant to help me typeset as best as I possible can being a mere embryonic developer.  Ahh, need some more meaningful text in here so we flow over a line, or maybe even tow or three.  Bugger, still need some more so it flows onto several lines .. ahh but I still have to set a max character width!</p> -->
-    <section class="dashboard dashboard__background">
-        <!-- <div class=""> -->
-            <section class="dashboard__attractions dashboard__child">
-                <div>
-                    <h2><a href="/attractions">Attractions</a> </h2>
-                    <p class="tagline">Make memories Dreams and Dreams possible</p>
-                </div>
-                <div class="attractions-grid">
-                    <div class="attractions-grid-child">
-                        <h3>Yet To ...</h3>
-                        <ul>
-                        {% for attractions in unvisited %}
-                            {% for attraction in attractions %}
-                            <li><a href="/attractions/{{ attraction.id }}">{{attraction.name}}</a></li>
-                            {% endfor %}
+<!-- <p>This is a paragraph meant to help me typeset as best as I possible can being a mere embryonic developer.  Ahh, need some more meaningful text in here so we flow over a line, or maybe even tow or three.  Bugger, still need some more so it flows onto several lines .. ahh but I still have to set a max character width!</p> -->
+<section class="dashboard dashboard__background">
+    <!-- <div class=""> -->
+    <section class="dashboard__attractions dashboard__child">
+        <div>
+            <h2><a href="/attractions">Attractions</a> </h2>
+            <p class="tagline">Make memories Dreams and Dreams possible</p>
+        </div>
+        <div class="attractions-grid">
+            <div class="attractions-grid-child">
+                <h3>Yet To ...</h3>
+                <ul>
+                    {% for attractions in unvisited %}
+                        {% for attraction in attractions %}           
+                        <li>
+                            <a href="/attractions/{{ attraction.id }}">
+                                {{attraction.name}}
+                                <span>
+                                    {{ attraction.city.name }}
+                                    <img src="https://flagcdn.com/16x12/{{attraction.city.country.code.lower()}}.png" 
+                                    srcset="https://flagcdn.com/32x24/{{attraction.city.country.code.lower()}}.png 2x,
+                https://flagcdn.com/48x36/{{attraction.city.country.code.lower()}}.png 3x" 
+                width="16" height="12" alt="{{attraction.city.country.name}}">
+            
+                                </span>
+                            </a>
+                        </li>
                         {% endfor %}
-                        </ul>
-                    </div>
-            
-                    <div class="attractions-grid-child">
-                        <h3>Been To ...</h3>
-                        <ul>
-                            {% for place in visited %}
-                            <li><a href="/attractions/{{ place.id }}">{{place.name}}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            </section>
+                    {% endfor %}
+                </ul>
+            </div>
 
-            <section class="dashboard__notes dashboard__child">
-                <h2><a href="/notes">Notes</a></h2>
-                <p class="centered-text">{{stats_dict['num_notes']}}</p>
-            </section>
-
-            <section class="dashboard__cities dashboard__child">
-                <h2><a href="/cities">Cities</a></h2>
-                <p class="centered-text">{{stats_dict['num_cities']}}</p>
-            </section>
-            
-            <section class="dashboard__countries dashboard__child">
-                <h2><a href="/countries"><i class="fa-solid fa-circle-plus"></i>Countries</a></h2>
-                <p class="centered-text">{{stats_dict['num_countries']}}</p>
-            </section>
-        <!-- </div> -->
-
+            <div class="attractions-grid-child">
+                <h3>Been To ...</h3>
+                <ul>
+                    {% for place in visited %}
+                    <li>
+                        <a href="/attractions/{{ place.id }}">
+                            {{place.name}}
+                            <span>
+                                {{ place.city.name }}
+                                <img src="https://flagcdn.com/16x12/{{place.city.country.code.lower()}}.png" 
+                                srcset="https://flagcdn.com/32x24/{{place.city.country.code.lower()}}.png 2x,
+            https://flagcdn.com/48x36/{{place.city.country.code.lower()}}.png 3x" 
+            width="16" height="12" alt="{{place.city.country.name}}">
+        
+                            </span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     </section>
+
+    <section class="dashboard__notes dashboard__child">
+        <h2><a href="/notes">Notes</a></h2>
+        <p class="centered-text">{{stats_dict['num_notes']}}</p>
+    </section>
+
+    <section class="dashboard__cities dashboard__child">
+        <h2><a href="/cities">Cities</a></h2>
+        <p class="centered-text">{{stats_dict['num_cities']}}</p>
+    </section>
+
+    <section class="dashboard__countries dashboard__child">
+        <h2><a href="/countries"><i class="fa-solid fa-circle-plus mr-1"></i> Countries</a></h2>
+        <p class="centered-text">{{stats_dict['num_countries']}}</p>
+    </section>
+    <!-- </div> -->
+
+</section>
 {% endblock content %}

@@ -3,13 +3,22 @@
 {% block content %}
     
 
-    <h2>Notes</h2>
+    <section class="notes manager-content">
+        <h2>Notes</h2>
+        <p class="tagline">Dare to dream, make Memories and Spinnach</p>
 
-    <p><a href="/notes/new">Add a Note</a></p>
+        <nav class="navigation-secondary">
+            <ul>
+                <li><a href="/notes/new"><i class="fa-solid fa-circle-plus mr-1"></i>Add a Note</a></li>
+            </ul>
+        </nav>
 
-    {% for note in all_notes %}
-        <p><a href="/notes/{{ note.id }}">{{ note.title }}</a></p>    
-    {% endfor %}
+        <ul>
+            {% for note in all_notes %}
+                <li><a href="/notes/{{ note.id }}">{{ note.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
 
-   <p></p>
+ 
 {% endblock content %}  
