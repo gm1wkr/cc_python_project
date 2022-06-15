@@ -72,7 +72,7 @@ ul.navigation {
 }
 
 ul.navigation>li {
-    margin-right: 2rem;
+    margin-right: 1.2rem;
 }
 
 .navigation a {
@@ -80,11 +80,14 @@ ul.navigation>li {
     text-decoration: none;
     letter-spacing: 0.02rem;
     color: var(--accent-color-15);
+    padding: 0.3rem 1.2rem;
+    border-bottom: 1px solid transparent;
     transition: var(--link-transition);
 }
 
 .navigation a:hover {
-    color: var(--accent-color-30)
+    color: var(--accent-color-30);
+    border-bottom: 1px solid var(--accent-color-20);
 }
 
 h1,
