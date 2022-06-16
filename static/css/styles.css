@@ -74,6 +74,12 @@ header {
     align-items: center;
 }
 
+footer{
+    font-size: 1.4rem;
+    color: var(--color-20);
+    padding-left: 4rem;
+}
+
 ul.navigation,
 .navigation-secondary>ul {
     list-style: none;
