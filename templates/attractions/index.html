@@ -12,9 +12,12 @@
             </ul>
         </nav>
 
-        <ul>
+        <ul class="manager-list">
             {% for attraction in all_attractions %}
-                <li><a href="/attractions/{{attraction.id}}">{{ attraction.name }}</a></li>
+                <li>
+                    <a href="/attractions/{{attraction.id}}">{{ attraction.name }}</a> 
+                    <span>{{ attraction.city.name }}</span>
+                </li>
             {% endfor %}
         </ul>
 

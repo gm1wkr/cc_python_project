@@ -2,8 +2,8 @@
 
 {% block content %}
     
+<section class="attractions manager-content">
     <h2>Edit {{ attraction.name }}</h2>
-
     <form action="/attractions/{{ attraction.id }}" method="POST">
         <div class="form-child">
             <label for="name">Name</label>
@@ -56,5 +56,5 @@
             <input type="submit" value="Edit">
         </div>
     </form>
-
+</section>
 {% endblock content %}

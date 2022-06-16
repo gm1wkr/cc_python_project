@@ -32,8 +32,11 @@
 
     --box-shadow-20: 2px 4px 9px 1px rgba(0, 0, 0, 0.8);
 
-    --link-transition:  color 0.3s ease-in-out, 
-                        background-color 0.6s ease-in-out;
+    --text-shadow-50: 1px 3px 4px rgba(0, 0, 0, 0.6);
+    --text-shadow-10: 0px 2px 3px rgba(0, 0, 0, 0.4);
+
+    --link-transition: color 0.3s ease-in-out,
+        background-color 0.6s ease-in-out;
 }
 
 *,
@@ -50,6 +53,10 @@ html {
     font-family: Roboto, sans-serif;
     font-weight: 400;
     background-color: var(--surface-40);
+    background: linear-gradient(35deg, 
+        rgba(0,0,0,0.985) 0%, 
+        rgba(0,0,0,0.85) 47%, 
+        rgba(0,0,0,0.984) 100%);
     color: var(--color-10);
 }
 
@@ -59,25 +66,26 @@ body {
 }
 
 header {
-    min-height: 6rem;
-    margin-bottom: 2rem;
+    min-height: 4rem;
+    padding-top: 1.2rem;
+    margin-bottom: 1.2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 ul.navigation,
-.navigation-secondary > ul {
+.navigation-secondary>ul {
     list-style: none;
     display: flex;
 }
 
 ul.navigation>li,
-.navigation-secondary > ul >li {
+.navigation-secondary>ul>li {
     margin-right: 1.2rem;
 }
 
-.navigation a, 
+.navigation a,
 .navigation-secondary a,
 .link-button {
     font-size: 1.3rem;
@@ -89,23 +97,33 @@ ul.navigation>li,
     transition: var(--link-transition);
 }
 
-.navigation a:hover, 
+.navigation a:hover,
 .navigation-secondary a:hover,
 .link-button:hover {
     color: var(--accent-color-30);
     border-bottom: 1px solid var(--accent-color-20);
 }
 
-.navigation-secondary{
+.navigation-secondary {
     margin: 1.6rem;
     border-bottom: 1px solid var(--accent-color-50);
+    font-weight: 700;
+    text-shadow: var(--text-shadow-50);
 }
+
+.navigation-secondary a {
+    letter-spacing: 0.14rem;
+    text-shadow: var(--text-shadow-50);
+
+}
+
 .manager-content {
-    margin-top:1.2rem;
+    margin-top: 1.2rem;
     border: 1px solid var(--accent-color-50);
 }
-.manager-content .tagline{
-    margin-top:1.2rem;
+
+.manager-content .tagline {
+    margin-top: 1.2rem;
 }
 
 
@@ -127,9 +145,9 @@ ul.navigation>li,
     border-top: 1px solid var(--accent-color-10);
 }
 
-.navigation-secondary{
-   border: none;
-   background: transparent; 
+.navigation-secondary {
+    border: none;
+    background: transparent;
 }
 
 h1,
@@ -144,6 +162,7 @@ h4 {
     color: var(--accent-color-15);
     letter-spacing: 0.12rem;
     text-transform: capitalize;
+    text-shadow: var(--text-shadow-50);
 }
 
 main {}
@@ -155,22 +174,48 @@ ul {
     margin: 0 3rem 1rem 3rem;
 }
 
-dl{
+ul.manager-list {
+    font-size: 1.6rem;
+    ;
+    padding: 2.4rem;
+    background-color: var(--surface-40);
+    opacity: 0.96;
+    border-radius: 1.2rem;
+    box-shadow: var(--box-shadow-20);
+}
+
+ul.manager-list>li {
+    margin-bottom: 0rem;
+    padding: 0 1.2rem;
+    border-radius: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+ul.manager-list>li>span {
+    font-size: 1.2rem;
+}
+
+dl {
     /* max-width: 60%; */
     margin: auto;
     padding: 1.2rem;
     font-size: 1.2rem;
     letter-spacing: 0.12rem;
     color: var(--accent-color-10);
-    background-color: var(--surface-35);
+    background-color: var(--surface-40);
+    opacity: 0.92;
+    box-shadow: var(--box-shadow-20);
 }
 
-dt{
+dt {
     margin-bottom: 0.8rem;
     font-weight: 700;
 }
 
-dd{
+dd {
     margin-left: 0.6rem;
     margin-bottom: 1.6rem;
 }
@@ -181,7 +226,7 @@ h1 {
     margin-bottom: 0;
     margin-top: 0;
     margin-bottom: 0rem;
-    font-size: 3.53rem;
+    font-size: 3.2rem;
     color: var(--accent-color-15);
 }
 
@@ -222,16 +267,32 @@ h2 a:hover {
 }
 
 
-a{
+a {
     color: var(--accent-color-20);
     transition: var(--link-transition);
 }
 
 
-a:hover{
+a:hover {
     color: var(--accent-color-10);
 }
 
+ul.manager-list a {
+    display: block;
+    color: var(--accent-color-15);
+    text-decoration: none;
+    padding: 0.6rem 0;
+    transition: var(--link-transition);
+}
+
+ul.manager-list li:hover {
+    background-color: var(--surface-40);
+    box-shadow: var(--box-shadow-20);
+}
+
+ul.manager-list a:hover {
+    color: var(--accent-color-20);
+}
 p {
     font-size: 1.3rem;
     font-weight: 300;
@@ -259,10 +320,10 @@ footer {
     border-radius: 1rem;
     border: 1px solid var(--surface-40);
     margin: 0 auto;
-    padding: 6rem 0;
+    padding: 4rem 0;
     max-width: 82vw;
     display: grid;
-    gap: 2.4rem;
+    gap: 1.8rem;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: "att att att"
         "notes cities countries";
@@ -301,7 +362,7 @@ footer {
     /* background-color: blueviolet; */
     display: grid;
     width: 100%;
-    gap: 4rem;
+    gap: 1.6rem;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, max-content);
     justify-content: space-around;
@@ -321,7 +382,7 @@ footer {
     display: block;
     text-decoration: none;
     font-size: 1.3rem;
-    font-weight:400;
+    font-weight: 400;
     width: 100%;
     /* line-height: 2.2rem; */
     margin: auto;
@@ -333,7 +394,8 @@ footer {
     border-left: 2px solid var(--color-35);
     border-radius: 0.16rem;
     transition: var(--link-transition);
-    letter-spacing: 0.1rem;;
+    letter-spacing: 0.1rem;
+    ;
 }
 
 .attractions-grid-child a>span {
@@ -349,6 +411,37 @@ footer {
     border-left: 2px solid var(--accent-color-10);
 }
 
+.manager-content {
+    min-height: 80vh;
+    border-radius: 0.9rem;
+    padding-top: 1.2rem;
+}
+
+.cities {
+    background-image: url('/static/img/city-by-night.jpeg');
+    background-position: center;
+    background-size: cover;
+}
+
+.countries {
+    background-image: url('/static/img/sunset-over-wing.jpeg');
+    background-position: center;
+    background-size: cover;
+}
+
+.attractions {
+    background-image: url('/static/img/cn-tower-processed.jpeg');
+    background-position: center;
+    background-size: cover;
+
+}
+
+.notes {
+    background-image: url('/static/img/candle-final.jpeg');
+    background-position: center;
+    background-size: cover;
+
+}
 
 .panel-grid {
     margin-top: 2.4rem;
@@ -361,12 +454,12 @@ footer {
 }
 
 .panel-grid__children {
-    height:100%;
+    height: 100%;
     width: 80%;
     margin: auto;
 }
 
-.flag > img {
+.flag>img {
     margin: auto;
 }
 
@@ -383,48 +476,67 @@ p.centered-text {
     max-width: 60ch;
     display: block;
     text-align: center;
-    margin:auto;
+    margin: auto;
     margin-bottom: 1.6rem;
 }
 
 p.tagline {
-    max-width:80vw;
+    max-width: 80vw;
+    font-size: 1.8rem;
     font-family: 'Raleway', sans-serif;
     font-style: italic;
     font-weight: 200;
-    margin:auto;
+    margin: auto;
     margin-bottom: 1.6rem;
     text-align: center;
-    line-height: 2.8rem;;
+    line-height: 2.8rem;
+    ;
 }
 
+.description {
+    margin: auto;
+    font-family: Raleway, sans-serif;
+    color: var(--accent-color-10);
+    background-color: var(--surface-40);
+    line-height: 2.4rem;
+    padding: 2.4rem;
+    border-radius: 1.2rem;
+    opacity: 0.94;
+    box-shadow: var(--box-shadow-20);
+    border: 1px solid var(--)
+}
+.center{
+    text-align: center;
+}
 
 /* 
 *******            FORMS 
 */
 
 
-form{
+form {
     border: 1px solid var(--color-30);
     max-width: 54vw;
     margin: 2.4rem auto;
     padding: 2rem;
     background-color: var(--surface-40);
-    border-radius: 1rem;;
+    border-radius: 1rem;
+    opacity:0.92;
+    ;
 }
 
-.form-child{
+.form-child {
     display: flex;
     justify-content: center;
     margin-bottom: 1.4rem;
     font-size: 1.2rem;
 }
 
-.form-child > label {
+.form-child>label {
     width: 9rem;
 }
 
-.form-child > input,
+.form-child>input,
 .form-child select,
 .form-child textarea {
     flex-grow: 1;
@@ -433,21 +545,21 @@ form{
     font-size: 1.2rem;
 }
 
-.form-child > span {
-    display:block;
+.form-child>span {
+    display: block;
     height: 100%;
     padding: 0.4rem 1rem;
 }
 
 
-input[type=submit]{
+input[type=submit] {
     background-color: var(--surface-30);
     color: var(--accent-color-30);
     transition: var(--link-transition);
 }
 
 
-input:hover{
+input:hover {
     background-color: var(--surface-40);
     color: var(--accent-color-40);
 }
@@ -459,13 +571,14 @@ input:hover{
 }
 
 
-.link-button{
+.link-button {
     /* padding: 0.3rem 0; */
     border: unset;
     border-radius: 0;
     background-color: transparent;
 }
-.link-button:hover{
+
+.link-button:hover {
     color: #f20;
 }
 

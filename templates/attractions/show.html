@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="attractions">
+<section class="attractions manager-content">
     <h2>
         {{ attraction.name }},
         {{ attraction.city.name }},
@@ -20,7 +20,8 @@
             </li>
         </ul>
     </nav>
-    <p>{{ attraction.date }} - {{ attraction.description }}</p>
+
+    <p class="description">{{ attraction.date }} - {{ attraction.description }}</p>
     
     
     

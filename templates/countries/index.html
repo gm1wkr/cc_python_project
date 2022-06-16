@@ -11,16 +11,16 @@
     </nav>
     
     
-    <ul>
+    <ul class="manager-list">
     {% for country in all_countries %}
     <!-- Countries as UL?? -->
         <li>
-    
+    <a href="/countries/{{ country.id }}">
             <img src="https://flagcdn.com/16x12/{{country.code.lower()}}.png" srcset="https://flagcdn.com/32x24/{{country.code.lower()}}.png 2x,
-            https://flagcdn.com/48x36/{{country.code.lower()}}.png 3x" width="16" height="12" alt="{{country.name}}">
+            https://flagcdn.com/48x36/{{country.code.lower()}}.png 3x" width="24" height="18" alt="{{country.name}}">
     
-            <a href="/countries/{{ country.id }}">{{ country.name }}</a> - {{ country.region }} {{ country.capital }} {{
-            country.code }}
+            {{ country.name }}</a>  
+            <span>{{ country.region }} {{ country.capital }} {{ country.code }}</span>
     
         </li>
     

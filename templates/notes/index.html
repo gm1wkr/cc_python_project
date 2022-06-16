@@ -13,9 +13,12 @@
             </ul>
         </nav>
 
-        <ul>
+        <ul class="manager-list">
             {% for note in all_notes %}
-                <li><a href="/notes/{{ note.id }}">{{ note.title }}</a></li>
+                <li>
+                    <a href="/notes/{{ note.id }}">{{ note.title }}</a>
+                    <span>{{note.date}}</span>
+                </li>
             {% endfor %}
         </ul>
     </section>
