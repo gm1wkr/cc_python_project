@@ -6,7 +6,7 @@
 ## The Stack
 <br>    
 <br>
-<div align="center">
+<div align="center" style="background: #ddd">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" title="Python" alt="Python" width="80" height="80"/>&nbsp;
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"  width="80" height="80" />&nbsp;
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"  width="80" height="80" /> &nbsp;
