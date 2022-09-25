@@ -29,6 +29,7 @@ In addition to the above, I also included the ability for the user to create 'No
 
 During this project I also took the oppertunity to become more fluent with CSS3.
   
+  
 ## The Stack
 
 The brief required a full stack application written using Python and the Flask framework and Jinja2 Templates.  The database is PostgreSQL connected to python with the psycopg2 library. 
@@ -63,3 +64,12 @@ As the first CodeClan project the learning points are too numerous to mention so
 - Time management and estimating time needed (estimates are always wrong, double them twice :smirk: )
 
 ## What I would do Differently
+
+### Front End
+I would take more time to plan out a responsive and accessible front end and also organise my CSS.  The CSS does not properly leverage the cascade and started to become very messy during late night sessions!  A solution would may have been to use postCSS or SASS to keep the CSS organised and resusable.  The templates are not responsive enough, the layout breaks at about 800px.  
+
+### Back End
+The back end went together quite easily due to the time spent planning the models and repositories.  Implimenting the repositories was uncomfortable at times, largely due to inexperience and not understanding which part of the stack was generating an error (the database, connector or flask).
+
+## Conclusion
+This was a 6 day project and I feel I accomplished a lot and learned a great deal.  I really enjoyed the journey from the back end engineering to trying to make the front end usable with hopefully a dash of flair.  
