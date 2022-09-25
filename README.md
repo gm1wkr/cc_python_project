@@ -1,6 +1,8 @@
 # CodeClan Python Project Week 5
 ## Solo project 6 days.
 
+<img width="66%" alt="css-009" src="https://user-images.githubusercontent.com/6051686/192163795-b221bd65-0d40-4e2e-8f0f-31ba1b486214.png">
+
 ## The Brief
 
 <blockquote>
@@ -74,5 +76,6 @@ The back end went together quite easily due to the time spent planning the model
 This was a 6 day project and I feel I accomplished and learned a great deal.  I really enjoyed the journey from the back end engineering to making the front end usable with hopefully a dash of flair.  
 
 This project was an enjoyable and meaningful milestone in my journey to becoming a developer.
+
 
 
