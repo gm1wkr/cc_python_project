@@ -1,7 +1,7 @@
 # CodeClan Python Project Week 5
 ## Solo project 6 days.
 
-<img align="center" width="66%" alt="css-009" src="https://user-images.githubusercontent.com/6051686/192163795-b221bd65-0d40-4e2e-8f0f-31ba1b486214.png">
+![wireframe-python_project-dashboard](https://user-images.githubusercontent.com/6051686/192164402-d24ae942-2061-4db0-a3c8-44e616796383.png)
 
 ## The Brief
 
