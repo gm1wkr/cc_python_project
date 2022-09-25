@@ -60,6 +60,6 @@ As the first CodeClan project the learning points are too numerous to mention so
 - Workflows & Git
 - Importance of planning database tables and python models in detail
 - Complex CSS / pretty front-end is difficult to balance while maintaining accessibility.
-- Time management and estimating time needed (estimates are always wrong, double them twice :-) )
+- Time management and estimating time needed (estimates are always wrong, double them twice :smirk: )
 
 ## What I would do Differently
