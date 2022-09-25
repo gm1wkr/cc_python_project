@@ -71,4 +71,8 @@ I would take more time to plan out a responsive and accessible front end and als
 The back end went together quite easily due to the time spent planning the models and repositories.  Implementing the repositories was uncomfortable at times, largely due to inexperience and not understanding which part of the stack was generating an error (the database, connector or flask).
 
 ## Conclusion
-This was a 6 day project and I feel I accomplished a lot and learned a great deal.  I really enjoyed the journey from the back end engineering to making the front end usable with hopefully a dash of flair. 
+This was a 6 day project and I feel I accomplished and learned a great deal.  I really enjoyed the journey from the back end engineering to making the front end usable with hopefully a dash of flair.  
+
+This project was an enjoyable and meaningful milestone in my journey to becoming a developer.
+
+
