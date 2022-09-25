@@ -44,6 +44,7 @@ The brief required a full stack application written using Python and the Flask f
 </div>
 <br>
 <br>
+
 ## The Process
 
 The process began with planning using wireframes to get some idea of where the app was heading.  Class diagrams and user journeys were then completed.  Being over eager I did not plan this project as diligently as I could and this became one of the major learning points of the project.
